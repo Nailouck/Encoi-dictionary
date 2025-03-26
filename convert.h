@@ -1,5 +1,9 @@
 #pragma once
+
+#include "err_proc.h"
 #include <string>
-	std::string reverse(std::string s);
-	std::string bin(int n);
-	std::string to_six_symb(std::string s);
+
+	std::wstring get_six_symb(std::wstring str, int shift, Error* code);
+	bool is_latin(wchar_t symb);
+	std::wstring convert(std::wstring str, Error* code);
+	std::wstring decryption(std::wstring str, Error* code);
