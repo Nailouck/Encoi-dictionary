@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <cmath>
 
-const std::wstring symb = L"абвгдеёжзийклмнопрстуфхцчшщъыьэюяçђēīȳčћš";
+const std::wstring symb = L"абвгдеёжзийклмнопрстуфхцчшщъыьэюяçђīȳčћš";
 
 int decima(int number) {
 	int result = 0;
@@ -29,7 +29,7 @@ std::wstring get_six_symb(std::wstring str, int shift, Error* code) {
 }
 
 bool is_latin(wchar_t symb) {
-	const std::wstring latin = L"abcdefghijklmnopqrstuvwxyz,';-(): ";
+	const std::wstring latin = L"abdefghijklmnoprstxyz~,';-(): ";
 
 	for (int i = 0; i < latin.length(); i++) {
 		if (symb == latin[i]) return true;
@@ -60,6 +60,6 @@ std::wstring convert(std::wstring str, Error* code) {
 	if (*code == SRING_OUT_OF_RANGE) {
 		return L"";
 	}
-	
+
 	return str;
- }
+}

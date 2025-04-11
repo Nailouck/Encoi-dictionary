@@ -1,5 +1,6 @@
 #pragma once
 
+
 #include <vector>
 
 class node {
@@ -7,6 +8,8 @@ public:
 	std::wstring key;
 	std::wstring value;
 	node();
+
+	bool is_empty();
 };
 class dictionary {
 public:
@@ -17,7 +20,9 @@ public:
 	dictionary(int n);
 
 	void fill();
-	std::wstring find(std::wstring k);
+	node find(std::wstring k, size_t index);
 	void add(int n);
 	void print();
 };
+
+bool comparison(node* lhv, node* rhv);
