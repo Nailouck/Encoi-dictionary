@@ -7,6 +7,7 @@ class node {
 public:
 	std::wstring key;
 	std::wstring value;
+	int relevance;
 	node();
 
 	bool is_empty();
@@ -20,9 +21,10 @@ public:
 	dictionary(int n);
 
 	void fill();
-	node find(std::wstring k, size_t index);
 	void add(int n);
 	void print();
 };
+
+node find(std::wstring k, node rhv);
 
 bool comparison(node* lhv, node* rhv);

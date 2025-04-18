@@ -3,10 +3,7 @@
 #include "Dictionary.h"
 #include "convert.h"
 
-node::node() {
-	key = L"";
-	value = L"";
-}
+node::node() : key(L""), value(L""), relevance(-1) {}
 dictionary::dictionary() : size(1), book(1) {}
 dictionary::dictionary(int n) : size(n), book(std::vector<node>(n)) {}
 
@@ -23,9 +20,10 @@ void dictionary::print() {
 		std::wcout << L'\n';
 	}
 }
-node dictionary::find(std::wstring k, size_t index) {
-	for (size_t i = index; i < size; i++) {
-		if (book[i].key.find(k) != book[i].key.npos) return book[i];
+node find(std::wstring k, node rhv) {
+	if (rhv.key.find(k) != rhv.key.npos) {
+		rhv.relevance = rhv.key.length() - k.length();
+		return rhv;
 	}
 	return node::node();
 }
